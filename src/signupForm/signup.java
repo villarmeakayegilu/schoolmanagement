@@ -292,41 +292,35 @@ public class signup extends javax.swing.JFrame {
     }//GEN-LAST:event_utActionPerformed
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
-        if(fn.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()||
-                un.getText().isEmpty()||pw.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "All fields are required!!", "Message",JOptionPane.ERROR_MESSAGE);
-        }else if(pw.getText().length() < 8){
-            JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message",JOptionPane.ERROR_MESSAGE);
-                pw.setText("");
-        }else if(duplicateCheck()){
-            System.out.println("Duplicate Exist");
-        }else{
-        dbConnector dbc = new dbConnector();
-        
-        try{
-            String pass = passwordHasher.hashPassword(pw.getText());
-        
-       if(dbc.insertData("INSERT INTO tbl_user(fname,lname,email,u_name,u_pass,u_type,u_status)"
-                        + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+pass+"','"
-                                + ut.getSelectedItem()+"','Pending')")){
-                       if(dbc.insertData("UPDATE tbl_user SET balance = 0.00 WHERE user_name = '" + un.getText() + "'")) {
-                    JOptionPane.showMessageDialog(null, "Inserted Successfully!");
-                    login l = new login();
-                    l.setVisible(true);
-                    this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Failed to set balance!", "Message", JOptionPane.ERROR_MESSAGE);
-                }
-           
-       
+if(fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
+    un.getText().isEmpty() || pw.getText().isEmpty()) {
+    JOptionPane.showMessageDialog(null, "All fields are required!!", "Message", JOptionPane.ERROR_MESSAGE);
+} else if(pw.getText().length() < 8) {
+    JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message", JOptionPane.ERROR_MESSAGE);
+    pw.setText("");
+} else if(duplicateCheck()) {
+    System.out.println("Duplicate Exist");
+} else {
+    dbConnector dbc = new dbConnector();
 
-       }else {
-                JOptionPane.showMessageDialog(null, "Connection Error!", "Message", JOptionPane.ERROR_MESSAGE);
+    try {
+        String pass = passwordHasher.hashPassword(pw.getText());
+
+        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_status) "
+            + "VALUES('" + fn.getText() + "','" + ln.getText() + "','" + em.getText() + "','" + un.getText() + "','" + pass + "','"
+            + ut.getSelectedItem() + "','Pending')")) {
+            JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+            login l = new login();
+            l.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to insert data!", "Message", JOptionPane.ERROR_MESSAGE);
         }
-        }catch(NoSuchAlgorithmException ex){
-            System.out.println(""+ex);
+    } catch(NoSuchAlgorithmException ex) {
+        System.out.println("" + ex);
     }
-        }
+}
+
     }//GEN-LAST:event_registerActionPerformed
 
     private void backtologinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backtologinMouseClicked
@@ -337,136 +331,166 @@ public class signup extends javax.swing.JFrame {
 
     private void utKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_utKeyPressed
         if(evt.getKeyCode () == KeyEvent.VK_ENTER){
-            if(fn.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()||
-                un.getText().isEmpty()||pw.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "All fields are required!!", "Message",JOptionPane.ERROR_MESSAGE);
-        }else if(pw.getText().length() < 8){
-            JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message",JOptionPane.ERROR_MESSAGE);
-                pw.setText("");
-        }else if(duplicateCheck()){
-            System.out.println("Duplicate Exist");
-        }else{
-        dbConnector dbc = new dbConnector();
-       if(dbc.insertData("INSERT INTO tbl_user(fname,lname,email,u_name,u_pass,u_type,u_status)"
-                        + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+pw.getText()+"','"
-                                + ut.getSelectedItem()+"','Pending')"))
-       {
-           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
-           login l = new login();
-           l.setVisible(true);
-           this.dispose();
-    }else{
-           JOptionPane.showMessageDialog(null, "Connection Error!", "Message",JOptionPane.ERROR_MESSAGE);
-       }
+if(fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
+    un.getText().isEmpty() || pw.getText().isEmpty()) {
+    JOptionPane.showMessageDialog(null, "All fields are required!!", "Message", JOptionPane.ERROR_MESSAGE);
+} else if(pw.getText().length() < 8) {
+    JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message", JOptionPane.ERROR_MESSAGE);
+    pw.setText("");
+} else if(duplicateCheck()) {
+    System.out.println("Duplicate Exist");
+} else {
+    dbConnector dbc = new dbConnector();
+
+    try {
+        String pass = passwordHasher.hashPassword(pw.getText());
+
+        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_status) "
+            + "VALUES('" + fn.getText() + "','" + ln.getText() + "','" + em.getText() + "','" + un.getText() + "','" + pass + "','"
+            + ut.getSelectedItem() + "','Pending')")) {
+            JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+            login l = new login();
+            l.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to insert data!", "Message", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch(NoSuchAlgorithmException ex) {
+        System.out.println("" + ex);
     }
+}
         }
     }//GEN-LAST:event_utKeyPressed
     
     private void unKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_unKeyPressed
       if(evt.getKeyCode () == KeyEvent.VK_ENTER){
-            if(fn.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()||
-                un.getText().isEmpty()||pw.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "All fields are required!!", "Message",JOptionPane.ERROR_MESSAGE);
-        }else if(pw.getText().length() < 8){
-            JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message",JOptionPane.ERROR_MESSAGE);
-                pw.setText("");
-        }else if(duplicateCheck()){
-            System.out.println("Duplicate Exist");
-        }else{
-        dbConnector dbc = new dbConnector();
-       if(dbc.insertData("INSERT INTO tbl_user(fname,lname,email,u_name,u_pass,u_type,u_status)"
-                        + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+pw.getText()+"','"
-                                + ut.getSelectedItem()+"','Pending')"))
-       {
-           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
-           login l = new login();
-           l.setVisible(true);
-           this.dispose();
-    }else{
-           JOptionPane.showMessageDialog(null, "Connection Error!", "Message",JOptionPane.ERROR_MESSAGE);
-       }
+if(fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
+    un.getText().isEmpty() || pw.getText().isEmpty()) {
+    JOptionPane.showMessageDialog(null, "All fields are required!!", "Message", JOptionPane.ERROR_MESSAGE);
+} else if(pw.getText().length() < 8) {
+    JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message", JOptionPane.ERROR_MESSAGE);
+    pw.setText("");
+} else if(duplicateCheck()) {
+    System.out.println("Duplicate Exist");
+} else {
+    dbConnector dbc = new dbConnector();
+
+    try {
+        String pass = passwordHasher.hashPassword(pw.getText());
+
+        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_status) "
+            + "VALUES('" + fn.getText() + "','" + ln.getText() + "','" + em.getText() + "','" + un.getText() + "','" + pass + "','"
+            + ut.getSelectedItem() + "','Pending')")) {
+            JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+            login l = new login();
+            l.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to insert data!", "Message", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch(NoSuchAlgorithmException ex) {
+        System.out.println("" + ex);
     }
+}
         }
     }//GEN-LAST:event_unKeyPressed
 
     private void emKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emKeyPressed
       if(evt.getKeyCode () == KeyEvent.VK_ENTER){
-            if(fn.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()||
-                un.getText().isEmpty()||pw.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "All fields are required!!", "Message",JOptionPane.ERROR_MESSAGE);
-        }else if(pw.getText().length() < 8){
-            JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message",JOptionPane.ERROR_MESSAGE);
-                pw.setText("");
-        }else if(duplicateCheck()){
-            System.out.println("Duplicate Exist");
-        }else{
-        dbConnector dbc = new dbConnector();
-       if(dbc.insertData("INSERT INTO tbl_user(fname,lname,email,u_name,u_pass,u_type,u_status)"
-                        + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+pw.getText()+"','"
-                                + ut.getSelectedItem()+"','Pending')"))
-       {
-           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
-           login l = new login();
-           l.setVisible(true);
-           this.dispose();
-    }else{
-           JOptionPane.showMessageDialog(null, "Connection Error!", "Message",JOptionPane.ERROR_MESSAGE);
-       }
+if(fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
+    un.getText().isEmpty() || pw.getText().isEmpty()) {
+    JOptionPane.showMessageDialog(null, "All fields are required!!", "Message", JOptionPane.ERROR_MESSAGE);
+} else if(pw.getText().length() < 8) {
+    JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message", JOptionPane.ERROR_MESSAGE);
+    pw.setText("");
+} else if(duplicateCheck()) {
+    System.out.println("Duplicate Exist");
+} else {
+    dbConnector dbc = new dbConnector();
+
+    try {
+        String pass = passwordHasher.hashPassword(pw.getText());
+
+        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_status) "
+            + "VALUES('" + fn.getText() + "','" + ln.getText() + "','" + em.getText() + "','" + un.getText() + "','" + pass + "','"
+            + ut.getSelectedItem() + "','Pending')")) {
+            JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+            login l = new login();
+            l.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to insert data!", "Message", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch(NoSuchAlgorithmException ex) {
+        System.out.println("" + ex);
     }
+}
         }
     }//GEN-LAST:event_emKeyPressed
 
     private void lnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lnKeyPressed
       if(evt.getKeyCode () == KeyEvent.VK_ENTER){
-            if(fn.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()||
-                un.getText().isEmpty()||pw.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "All fields are required!!", "Message",JOptionPane.ERROR_MESSAGE);
-        }else if(pw.getText().length() < 8){
-            JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message",JOptionPane.ERROR_MESSAGE);
-                pw.setText("");
-        }else if(duplicateCheck()){
-            System.out.println("Duplicate Exist");
-        }else{
-        dbConnector dbc = new dbConnector();
-       if(dbc.insertData("INSERT INTO tbl_user(fname,lname,email,u_name,u_pass,u_type,u_status)"
-                        + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+pw.getText()+"','"
-                                + ut.getSelectedItem()+"','Pending')"))
-       {
-           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
-           login l = new login();
-           l.setVisible(true);
-           this.dispose();
-    }else{
-           JOptionPane.showMessageDialog(null, "Connection Error!", "Message",JOptionPane.ERROR_MESSAGE);
-       }
+if(fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
+    un.getText().isEmpty() || pw.getText().isEmpty()) {
+    JOptionPane.showMessageDialog(null, "All fields are required!!", "Message", JOptionPane.ERROR_MESSAGE);
+} else if(pw.getText().length() < 8) {
+    JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message", JOptionPane.ERROR_MESSAGE);
+    pw.setText("");
+} else if(duplicateCheck()) {
+    System.out.println("Duplicate Exist");
+} else {
+    dbConnector dbc = new dbConnector();
+
+    try {
+        String pass = passwordHasher.hashPassword(pw.getText());
+
+        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_status) "
+            + "VALUES('" + fn.getText() + "','" + ln.getText() + "','" + em.getText() + "','" + un.getText() + "','" + pass + "','"
+            + ut.getSelectedItem() + "','Pending')")) {
+            JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+            login l = new login();
+            l.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to insert data!", "Message", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch(NoSuchAlgorithmException ex) {
+        System.out.println("" + ex);
     }
+}
         }
     }//GEN-LAST:event_lnKeyPressed
 
     private void fnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fnKeyPressed
       if(evt.getKeyCode () == KeyEvent.VK_ENTER){
-            if(fn.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()||
-                un.getText().isEmpty()||pw.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "All fields are required!!", "Message",JOptionPane.ERROR_MESSAGE);
-        }else if(pw.getText().length() < 8){
-            JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message",JOptionPane.ERROR_MESSAGE);
-                pw.setText("");
-        }else if(duplicateCheck()){
-            System.out.println("Duplicate Exist");
-        }else{
-        dbConnector dbc = new dbConnector();
-       if(dbc.insertData("INSERT INTO tbl_user(fname,lname,email,u_name,u_pass,u_type,u_status)"
-                        + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+pw.getText()+"','"
-                                + ut.getSelectedItem()+"','Pending')"))
-       {
-           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
-           login l = new login();
-           l.setVisible(true);
-           this.dispose();
-    }else{
-           JOptionPane.showMessageDialog(null, "Connection Error!", "Message",JOptionPane.ERROR_MESSAGE);
-       }
+if(fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
+    un.getText().isEmpty() || pw.getText().isEmpty()) {
+    JOptionPane.showMessageDialog(null, "All fields are required!!", "Message", JOptionPane.ERROR_MESSAGE);
+} else if(pw.getText().length() < 8) {
+    JOptionPane.showMessageDialog(null, "Max password character should be 8 above!", "Message", JOptionPane.ERROR_MESSAGE);
+    pw.setText("");
+} else if(duplicateCheck()) {
+    System.out.println("Duplicate Exist");
+} else {
+    dbConnector dbc = new dbConnector();
+
+    try {
+        String pass = passwordHasher.hashPassword(pw.getText());
+
+        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_status) "
+            + "VALUES('" + fn.getText() + "','" + ln.getText() + "','" + em.getText() + "','" + un.getText() + "','" + pass + "','"
+            + ut.getSelectedItem() + "','Pending')")) {
+            JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+            login l = new login();
+            l.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to insert data!", "Message", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch(NoSuchAlgorithmException ex) {
+        System.out.println("" + ex);
     }
+}
         }
     }//GEN-LAST:event_fnKeyPressed
 

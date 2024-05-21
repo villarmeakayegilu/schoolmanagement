@@ -28,36 +28,37 @@ public class login extends javax.swing.JFrame {
      static String type;
      
          public static boolean login(String username, String password) {
-        dbConnector connector = new dbConnector();
-        try{
-            String query = "SELECT * FROM tbl_user WHERE u_name = '" + username + "'";
-            ResultSet resultSet = connector.getData(query);
-            if(resultSet.next()){
-                String hashedPass = resultSet.getString("user_pass");
-                String rehashedPass = passwordHasher.hashPassword(password);
-              
-                if(hashedPass.equals(rehashedPass)){  
-                  type = resultSet.getString("u_type");
-                  status = resultSet.getString("u_status");
-                  Session session = Session.getInstance();
-                  session.setUid(resultSet.getInt("uid"));    
-                  session.setFname(resultSet.getString("fname"));
-                  session.setLname(resultSet.getString("lname"));
-                  session.setEmail(resultSet.getString("email"));
-                  session.setType(resultSet.getString("u_type"));
-                  session.setStatus(resultSet.getString("u_status"));
-            return true;
-              }else{
-                  return false;
-              }    
-              
-            }else{
-                 return false;
-             }
-        }catch (SQLException | NoSuchAlgorithmException ex) {
+    dbConnector connector = new dbConnector();
+    try {
+        String query = "SELECT * FROM tbl_user WHERE u_name = '" + username + "'";
+        ResultSet resultSet = connector.getData(query);
+        if (resultSet.next()) {
+            String hashedPass = resultSet.getString("u_pass");
+            String rehashedPass = passwordHasher.hashPassword(password);
+
+            if (hashedPass.equals(rehashedPass)) {
+                type = resultSet.getString("u_type");
+                status = resultSet.getString("u_status");
+                Session session = Session.getInstance();
+                session.setUid(resultSet.getInt("uid"));
+                session.setFname(resultSet.getString("fname"));
+                session.setLname(resultSet.getString("lname"));
+                session.setEmail(resultSet.getString("email"));
+                session.setType(resultSet.getString("u_type"));
+                session.setStatus(resultSet.getString("u_status"));
+                return true;
+            } else {
+                return false;
+            }
+
+        } else {
             return false;
         }
+    } catch (SQLException | NoSuchAlgorithmException ex) {
+        return false;
     }
+}
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -251,26 +252,26 @@ public class login extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
 
-        if(login(username.getText(),password.getText())){
+            if(login(username.getText(),password.getText())){
 
-            if(!status.equals("Active")){
-                JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
-            }else{
-                if(type.equals("Admin")){
-                    adminDashboard ads = new adminDashboard();
-                    ads.setVisible(true);
-                    this.dispose();
-                }else if(type.equals("User")){
-                    userDashboard udb = new userDashboard();
-                    udb.setVisible(true);
-                    this.dispose();
+                if(!status.equals("Active")){
+                    JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
                 }else{
-                    JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
+                    if(type.equals("Admin")){
+                        adminDashboard ads = new adminDashboard();
+                        ads.setVisible(true);
+                        this.dispose();
+                    }else if(type.equals("User")){
+                        userDashboard udb = new userDashboard();
+                        udb.setVisible(true);
+                        this.dispose();
+                    }else{
+                        JOptionPane.showMessageDialog(null,"No account type found, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
+                    }
                 }
+            }else{
+                JOptionPane.showMessageDialog(null,"Invalid Account, Please Try Again!!","Message",JOptionPane.ERROR_MESSAGE);
             }
-        }else{
-            JOptionPane.showMessageDialog(null,"Invalid Account, Please Try Again!!","Message",JOptionPane.ERROR_MESSAGE);
-        }
 
     }//GEN-LAST:event_loginActionPerformed
 
