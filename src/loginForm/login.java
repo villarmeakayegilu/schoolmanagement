@@ -5,7 +5,7 @@
  */
 package loginForm;
 
-import teacher.teacherDashbord;
+import admin.adminDashbord;
 import user.studentDashboard;
 import config.Session;
 import config.dbConnector;
@@ -177,7 +177,7 @@ public class login extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!");
                 }else{
                     if(type.equals("Admin")){
-                        teacherDashbord ads = new teacherDashbord();
+                        adminDashbord ads = new adminDashbord();
                         ads.setVisible(true);
                         this.dispose();
                     }else if(type.equals("User")){
@@ -208,7 +208,7 @@ public class login extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
                 }else{
                     if(type.equals("Admin")){
-                        teacherDashbord ads = new teacherDashbord();
+                        adminDashbord ads = new adminDashbord();
                         ads.setVisible(true);
                         this.dispose();
                     }else if(type.equals("User")){
@@ -239,7 +239,7 @@ public class login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!", "Message",JOptionPane.ERROR_MESSAGE);
             }else{
                 if(type.equals("Admin")){
-                    teacherDashbord ads = new teacherDashbord();
+                    adminDashbord ads = new adminDashbord();
                     ads.setVisible(true);
                     this.dispose();
                 }else if(type.equals("User")){

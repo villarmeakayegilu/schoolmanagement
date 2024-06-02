@@ -34,6 +34,7 @@ public class studentDashboard extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         account_fname = new javax.swing.JLabel();
         account_lname = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -60,6 +61,10 @@ public class studentDashboard extends javax.swing.JFrame {
         account_lname.setText("Last Name");
         jPanel8.add(account_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 207, 146, 34));
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel8.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 120, 100));
+
         jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 240, 400));
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 255));
@@ -75,7 +80,7 @@ public class studentDashboard extends javax.swing.JFrame {
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("USER DASHBOARD");
+        jLabel1.setText("STUDENT DASHBOARD");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 50));
@@ -166,6 +171,7 @@ public class studentDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel account_lname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

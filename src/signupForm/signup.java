@@ -32,7 +32,6 @@ public class signup extends javax.swing.JFrame {
 
     public signup() {
         initComponents();
-        duplicateCheck();
     }
     
     public static String email,username;
@@ -556,7 +555,7 @@ if(fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
 
     private void browseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_browseMouseClicked
         browse.setVisible(false);
-        images.setIcon(null);
+        image.setIcon(null);
         destination = "";
         path="";
     }//GEN-LAST:event_browseMouseClicked
