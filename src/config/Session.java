@@ -13,6 +13,8 @@ package config;
 public class Session {
     private static Session instance;
     private int uid;
+    private int cid;
+    private int user_id;
     private String fname;
     private String lname;
     private String email;
@@ -43,6 +45,21 @@ public class Session {
 
     public void setUid(int uid) {
         this.uid = uid;
+    }
+    
+        public int getUserid() {
+        return user_id;
+    }
+
+    public void setUserid(int user_id) {
+        this.user_id = user_id;
+    }
+        public int getCid() {
+        return cid;
+    }
+
+    public void setCid(int cid) {
+        this.cid = cid;
     }
 
     public String getFname() {

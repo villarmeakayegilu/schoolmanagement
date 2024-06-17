@@ -382,9 +382,9 @@ if(fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
     try {
         String pass = passwordHasher.hashPassword(pw.getText());
 
-        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_status ) "
+        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_image, u_status) "
             + "VALUES('" + fn.getText() + "','" + ln.getText() + "','" + em.getText() + "','" + un.getText() + "','" + pass + "','"
-            + ut.getSelectedItem() + "','Pending')")) {
+            + ut.getSelectedItem() + "','"+ destination +"','Pending')")) {
             JOptionPane.showMessageDialog(null, "Inserted Successfully!");
             login l = new login();
             l.setVisible(true);
@@ -418,9 +418,9 @@ if(fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
 } else {
     dbConnector dbc = new dbConnector();
 
-        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_status) "
+        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_image, u_status) "
             + "VALUES('" + fn.getText() + "','" + ln.getText() + "','" + em.getText() + "','" + un.getText() + "','" + pw.getText() +  "','"
-            + ut.getSelectedItem() + "','Pending')")) {
+            + ut.getSelectedItem() + "','"+ destination +"','Pending')")) {
             JOptionPane.showMessageDialog(null, "Inserted Successfully!");
             login l = new login();
             l.setVisible(true);
@@ -446,9 +446,9 @@ if(fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
 } else {
     dbConnector dbc = new dbConnector();
 
-        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_status) "
+        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_image, u_status) "
             + "VALUES('" + fn.getText() + "','" + ln.getText() + "','" + em.getText() + "','" + un.getText() + "','" + pw.getText() +  "','"
-            + ut.getSelectedItem() + "','Pending')")) {
+            + ut.getSelectedItem() + "','"+ destination +"','Pending')")) {
             JOptionPane.showMessageDialog(null, "Inserted Successfully!");
             login l = new login();
             l.setVisible(true);
@@ -474,9 +474,9 @@ if(fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
 } else {
     dbConnector dbc = new dbConnector();
 
-        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_status) "
+        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_image, u_status) "
             + "VALUES('" + fn.getText() + "','" + ln.getText() + "','" + em.getText() + "','" + un.getText() + "','" + pw.getText() +  "','"
-            + ut.getSelectedItem() + "','Pending')")) {
+            + ut.getSelectedItem() + "','"+ destination +"','Pending')")) {
             JOptionPane.showMessageDialog(null, "Inserted Successfully!");
             login l = new login();
             l.setVisible(true);
@@ -502,9 +502,9 @@ if(fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
 } else {
     dbConnector dbc = new dbConnector();
 
-        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_status) "
+        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_image, u_status) "
             + "VALUES('" + fn.getText() + "','" + ln.getText() + "','" + em.getText() + "','" + un.getText() + "','" + pw.getText() +  "','"
-            + ut.getSelectedItem() + "','Pending')")) {
+            + ut.getSelectedItem() + "','"+ destination +"','Pending')")) {
             JOptionPane.showMessageDialog(null, "Inserted Successfully!");
             login l = new login();
             l.setVisible(true);
@@ -530,9 +530,9 @@ if(fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
 } else {
     dbConnector dbc = new dbConnector();
 
-        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_status) "
+        if(dbc.insertData("INSERT INTO tbl_user(fname, lname, email, u_name, u_pass, u_type, u_image, u_status) "
             + "VALUES('" + fn.getText() + "','" + ln.getText() + "','" + em.getText() + "','" + un.getText() + "','" + pw.getText() +  "','"
-            + ut.getSelectedItem() + "','Pending')")) {
+            + ut.getSelectedItem() + "','"+ destination +"','Pending')" )) {
             JOptionPane.showMessageDialog(null, "Inserted Successfully!");
             login l = new login();
             l.setVisible(true);
@@ -554,7 +554,7 @@ if(fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
     }//GEN-LAST:event_ckboxActionPerformed
 
     private void browseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_browseMouseClicked
-        browse.setVisible(false);
+        browse.setVisible(true);
         image.setIcon(null);
         destination = "";
         path="";
@@ -578,7 +578,7 @@ if(fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
                     image.setIcon(ResizeImage(path, null, image));
                     System.out.println(""+destination);
                     browse.setVisible(true);
-                    browse.setText("REMOVE");
+                    
                 }
             } catch (Exception ex) {
                 System.out.println("File Error!");

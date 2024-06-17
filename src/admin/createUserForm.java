@@ -5,6 +5,7 @@
  */
 package admin;
 
+import studentForm.students;
 import config.dbConnector;
 import config.passwordHasher;
 import java.awt.Image;
@@ -438,7 +439,7 @@ public class createUserForm extends javax.swing.JFrame {
                }
        
             JOptionPane.showMessageDialog(this, "Updated Successfully!");
-            usersForm uf = new usersForm();
+            students uf = new students();
             uf.setVisible(true);
             this.dispose();
         
@@ -459,7 +460,7 @@ public class createUserForm extends javax.swing.JFrame {
     }//GEN-LAST:event_clearActionPerformed
 
     private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
-      usersForm usf = new usersForm();
+      students usf = new students();
       usf.setVisible(true);
       this.dispose();
     }//GEN-LAST:event_cancelMouseClicked
@@ -492,7 +493,7 @@ public class createUserForm extends javax.swing.JFrame {
            try{
            Files.copy(selectedFile.toPath(), new File(destination).toPath(),StandardCopyOption.REPLACE_EXISTING);
           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
-          usersForm uf = new usersForm();
+          students uf = new students();
           uf.setVisible(true);
           this.dispose();
            }catch(IOException ex){
@@ -560,7 +561,7 @@ public class createUserForm extends javax.swing.JFrame {
     }//GEN-LAST:event_selectActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-           usersForm uf = new usersForm();
+           students uf = new students();
         uf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel1MouseClicked

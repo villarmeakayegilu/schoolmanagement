@@ -5,13 +5,13 @@
  */
 package admin;
 
+import studentForm.students;
 import scoreForm.score;
 import markssheetForm.markssheet;
 import courseForm.course;
-import config.Session;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import loginForm.login;
+
 
 public class adminDashbord extends javax.swing.JFrame {
 
@@ -268,19 +268,19 @@ public class adminDashbord extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
-        usersForm uf = new usersForm();
+        students uf = new students();
         uf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel8MouseClicked
 
     private void usersFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersFormMouseClicked
-        usersForm userT = new usersForm();
+        students userT = new students();
         userT.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_usersFormMouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        usersForm uf = new usersForm();
+        students uf = new students();
         uf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
